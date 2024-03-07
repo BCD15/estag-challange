@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./home.css">
+    <title>Suite Store</title>
+</head>
+<body>
+    <nav>
+        <a href="./home.html">
+            <h1>Suite Store</h1>
+        </a>
+            
+            <a href="../products/products.html" class="nav-links">Products</a>    
+            <a href="../categories/categories.html" class="nav-links">Categories</a>    
+            <a href="../history/history.html" class="nav-links">History</a>
+    </nav>
+        
+    <div class="cadastro">
+        <form action="localhost/home/home.html"  >
+            <select name="Product"  id="slctProduct" onchange="associaInput();" style="width: 95%;">
+            </select>
+
+            <input type="number" min="1" name="Amount" id="amountCardProduct" placeholder="Amount" style="width: 40%;">
+            <input type="text" name="Tax"  id="taxCardProduct" placeholder="Tax" disabled style="width: 24%;">
+            <input type="text" name="Price"  id="priceCardProduct" placeholder="Unit Price" disabled style="width: 24%;">
+        </form>
+
+        <input onclick="AddCartProduct()" type="submit" value="Add Product" class="submit-input">    
+        
+    </div>
+
+    <div class="carrinho">
+        <table>
+            <thead>
+                <tr>
+                    <th style="border-left: none; width: 50%;">Product</th>
+                    <th>Unit Price</th>
+                    <th>Amount</th>
+                    <th style="border-right: none">Total</th>
+                </tr>
+            </thead>
+            <tbody id="tablee">   
+            </tbody>
+        </table>
+
+        <div class="valorFinal">
+            <div>
+                <label>Tax: <input type="number" id="taxResult" disabled></label>
+            </div>
+            <div>
+                <label>Total: <input type="number" id="totalResult" disabled></label>
+            </div>
+        </div>
+
+        <div class="finish">    
+            <div>
+                <input type="button" onclick="cancelCart()" value="Cancel" style="background-color: lightgray; margin-left: 350px;">
+                <input type="button" onclick="finishCart()" value="Finish">
+            </div>
+        </div>
+    </div>
+    <script src="./home.js"></script>
+</body>
+</html>

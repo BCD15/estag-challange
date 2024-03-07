@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./products.css">
+    <title>Products</title>
+</head>
+<body>
+    <nav>
+        <a href="../home/home.html">
+            <h1>Suite Store</h1>
+        </a>
+            
+            <a href="./products.html" class="nav-links">Products</a>    
+            <a href="../categories/categories.html" class="nav-links">Categories</a>    
+            <a href="../history/history.html" class="nav-links">History</a>    
+    </nav>
+    
+    <div class="cadastro">
+        <form>
+            <input type="text" name="Product" id="nameProduct" placeholder="Product name"  style="width: 95%;">
+            <input type="number" min="1" name="Amount" id="amountProduct" placeholder="Amount" style="width: 40%;">
+            <input type="number" min="0.01" name="Price" id="priceProduct" placeholder="Price" style="width: 24%;">
+            <select name="Category" id="categoryProduct">
+            </select>
+        </form>
+        <input type="submit" value="Add Product" class="submit-input" onclick="AddProduct()">       
+    </div>
+
+    <div class="products">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 14%; border-left: none;">Code</th>
+                    <th style="width: 25%;">Product</th>
+                    <th>Amount</th>
+                    <th>Unit Price</th>
+                    <th style="border-right: solid 1px lightgray;">Category</th>
+                </tr>
+            </thead>
+            <tbody id="tablee">
+            </tbody>
+        </table>
+    </div>
+    <script src="./products.js"></script>
+</body>
+</html>
