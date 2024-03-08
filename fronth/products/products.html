@@ -18,14 +18,16 @@
     </nav>
     
     <div class="cadastro">
-        <form>
+        <form action="http://localhost/routes/products.php?action=post" method="POST">
             <input type="text" name="Product" id="nameProduct" placeholder="Product name"  style="width: 95%;">
             <input type="number" min="1" name="Amount" id="amountProduct" placeholder="Amount" style="width: 40%;">
             <input type="number" min="0.01" name="Price" id="priceProduct" placeholder="Price" style="width: 24%;">
             <select name="Category" id="categoryProduct">
             </select>
+            <div>
+                <button type="submit" value="Add Product" class="submit-input">Add Product</button>      
+            </div>
         </form>
-        <input type="submit" value="Add Product" class="submit-input" onclick="AddProduct()">       
     </div>
 
     <div class="products">
