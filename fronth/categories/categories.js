@@ -27,12 +27,5 @@ function DeleteCategory() {
     RenderCategory();
 };
 
-// function teste() {
-//     if() {
-        
-//     } else {
-//         return
-//     }
-// }
 RenderCategory();
-// teste();
+
