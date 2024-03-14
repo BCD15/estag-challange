@@ -19,5 +19,5 @@ function getCategories($myPDO) {
 // Deleta uma categoria
 function delCategory($myPDO) {
     $category = $myPDO->query("DELETE FROM categories WHERE code=" .$_REQUEST["code"]);
-    // $category->execute();
+    $category->execute();
 }

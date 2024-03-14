@@ -11,23 +11,23 @@
         <a href="./home.html">
             <h1>Suite Store</h1>
         </a>
-            
+
             <a href="../products/products.html" class="nav-links">Products</a>    
             <a href="../categories/categories.html" class="nav-links">Categories</a>    
             <a href="../history/history.html" class="nav-links">History</a>
     </nav>
         
     <div class="cadastro">
-        <form action="localhost/home/home.html"  >
+        <form>
             <select name="Product"  id="slctProduct" onchange="associaInput();" style="width: 95%;">
             </select>
 
             <input type="number" min="1" name="Amount" id="amountCardProduct" placeholder="Amount" style="width: 40%;">
-            <input type="text" name="Tax"  id="taxCardProduct" placeholder="Tax" disabled style="width: 24%;">
-            <input type="text" name="Price"  id="priceCardProduct" placeholder="Unit Price" disabled style="width: 24%;">
+            <input type="number" min="1" name="Tax"  id="taxCardProduct" placeholder="Tax" disabled style="width: 24%;">
+            <input type="number" min="0.01" step="any" name="Price" id="priceCardProduct" placeholder="Unit Price" disabled style="width: 24%;">
         </form>
-
-        <input onclick="AddCartProduct()" type="submit" value="Add Product" class="submit-input">    
+        
+        <input type="submit" value="Add Product to Cart" onclick="AddCartProduct()" class="submit-input">
         
     </div>
 
@@ -35,7 +35,7 @@
         <table>
             <thead>
                 <tr>
-                    <th style="border-left: none; width: 50%;">Product</th>
+                    <th style="border-left: none; width: 40%;">Product</th>
                     <th>Unit Price</th>
                     <th>Amount</th>
                     <th style="border-right: none">Total</th>
@@ -47,20 +47,66 @@
 
         <div class="valorFinal">
             <div>
-                <label>Tax: <input type="number" id="taxResult" disabled></label>
+                <label>Tax: <input type="number" id="taxResult" name="taxResult" disabled></label>
             </div>
             <div>
-                <label>Total: <input type="number" id="totalResult" disabled></label>
+                <label>Total: <input type="number" id="totalResult" name="totalResult" disabled></label>
             </div>
         </div>
 
         <div class="finish">    
             <div>
                 <input type="button" onclick="cancelCart()" value="Cancel" style="background-color: lightgray; margin-left: 350px;">
-                <input type="button" onclick="finishCart()" value="Finish">
+                <button onclick="orderPost()" class="tdbtn"><a style="display: block; text-decoration: none; color: black;" href="#modal" style="text-decoration: none; color: black;">Finish</a></button>
+                <!-- <button type="submit">Finish</button> -->
             </div>
         </div>
     </div>
+    <div id="modal" class="modal">
+        <div class="modal_content">
+            <div class="texto">
+                <h3>Tem certeza que deseja finalizar sua compra?</h3>
+                <p>Clique em finish para finalizar sua compra, clique em cancel para voltar</p>
+            </div>
+            <div class="buttons">
+                <button value="Cancel" style="background-color: lightgray;"><a style="display: block;" href="#" class="modal_close"> Cancel </a></button>
+                <button value="Finish" onclick="finishCart()"><a style="display: block;" href="#" class="modal_close"> Finish </a></button>
+            </div>
+        </div>
+      </div>
+      <style>
+        .modal {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(77, 77, 77, 0.7);
+            transition: all 0.4s;
+            }
+ 
+            .modal:target {
+            visibility: visible;
+            opacity: 1;
+            }
+
+            .modal_content {
+                background-color: #fff;
+                border-radius: 15px;
+                padding: 10px;
+                width: 40%;
+            }
+
+            .modal_footer {
+                text-align: center;
+                padding: 10px;
+            }
+      </style>
     <script src="./home.js"></script>
 </body>
 </html>

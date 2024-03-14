@@ -19,7 +19,8 @@ switch($_REQUEST["action"]){
             delCategory(($myPDO));
             echo ("<script> history.back();</script>");
         } catch (Exception $e){
-            echo "bah";
+            echo "erro ao excluir categoria";
+            echo "<br>";
             echo '<button onclick="history.back()">Voltar</button>';
         }
         break;

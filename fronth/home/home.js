@@ -13,7 +13,8 @@ function AddCartProduct() {
 
   const parcial = (amount * priceInt);
 
-  const tax = product.category?.tax;
+  const tax = product.tax;
+
   const taxInt = parseInt(tax);
 
   const taxTotalProduct = (taxInt/100 * parcial)
@@ -37,7 +38,7 @@ function AddCartProduct() {
         } else {
           const cartProducts = JSON.parse(localStorage.getItem("cartProducts"))
           for (let i = 0; i < cartProducts.length; i++) {
-            if(cartProducts[i].product.name == product.name) {
+            if(cartProducts[i].product[1] == product[1]) {
               alert('produto já está no carrinho')
               return
             }
@@ -55,21 +56,31 @@ function AddCartProduct() {
   }
 }
 
-function GetProducts() {
-  const products = JSON.parse(localStorage.getItem("products"));
-  if (products !== null) {
-    products.forEach((item) => RenderProduct(item));
-  }
-  document.getElementById("slctProduct").value = "Product";
+function RenderProduct(product) {
+  fetch("http://localhost/routes/products.php?action=get").then(response => response.json()).then((data) => {
+    var select = document.getElementById("slctProduct");
+    data.forEach(product => {
+        var option = document.createElement("option");
+        option.value = JSON.stringify(product);
+        
+        select.appendChild(option);
+        option.innerHTML = JSON.stringify(product[1]).replace(/"/g, "");
+    })
+  })
 }
 
-function RenderProduct(product) {
-  var select = document.getElementById("slctProduct");
-  var option = document.createElement("option");
-  option.value = JSON.stringify(product);
+function associaInput() {
+  const amount = document.getElementById("amountCardProduct").value;
+  const getProduct = document.getElementById("slctProduct").value;
+  const product = JSON.parse(getProduct);
+  const cartProduct = { product, amount };
 
-  select.appendChild(option);
-  option.innerHTML = JSON.stringify(product.name).replace(/"/g, "");
+  var taxt = cartProduct.product.tax;
+  const price = cartProduct.product?.price;
+  const priceFloat = parseFloat(price);
+
+  document.getElementById("taxCardProduct").value = `${taxt}`;
+  document.getElementById("priceCardProduct").value = `${priceFloat}`;
 }
 
 function GetCartProducts() {
@@ -82,120 +93,108 @@ function GetCartProducts() {
 function RenderCartProduct(cartProduct) {
   var tbody = document.getElementById("tablee");
   var trow = document.createElement("tr");
-
-    tbody.appendChild(trow);
+  
+    tbody.appendChild(trow);  
     trow.innerHTML = `
-        <th style="border-left: none; width: 50%;">${filter(
-          cartProduct.product?.name
-        )}</th>
-        <td>${cartProduct.priceInt.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        })}</td>
-        <td>${cartProduct.amount}</td>
-        <td name="totaltd">${cartProduct.totalProduct.toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD",
-        })}</td>
-        `;
-      
-      if(tbody.childElementCount <= 1) {
-        
-        document.getElementById("taxResult").value = `${cartProduct.taxTotalProduct.toFixed(2)}`;
-        document.getElementById("totalResult").value = `${cartProduct.totalProduct.toFixed(2)}`;
-      
-      } else {
-        var TaxTotalP = document.getElementById("taxResult").value 
-        var TotalP = document.getElementById("totalResult").value
+      <th style="border-left: none; width: 10%;">${filter(cartProduct.product[1])}</th>
+      <td>${cartProduct.priceInt.toLocaleString("en-US", {style: "currency", currency: "USD",})}</td>
+      <td>${cartProduct.amount}</td>
+      <td>${cartProduct.totalProduct.toLocaleString("en-US", {style: "currency", currency: "USD",})}</td>
+    `;
+  if(tbody.childElementCount <= 1) {
 
-        var TaxTotalPInt = parseFloat(TaxTotalP) 
-        var TotalPInt = parseFloat(TotalP)
-
-        var newTaxTotalP = TaxTotalPInt + cartProduct.taxTotalProduct
-        var newTotalP = TotalPInt + cartProduct.totalProduct
-        
-        document.getElementById("taxResult").value = `${newTaxTotalP.toFixed(2)}`;
-        document.getElementById("totalResult").value = `${newTotalP.toFixed(2)}`;
-      }
-
-}
-
-function associaInput() {
-  const amount = document.getElementById("amountCardProduct").value;
-  const getProduct = document.getElementById("slctProduct").value;
-  const product = JSON.parse(getProduct);
-  const cartProduct = { product, amount };
-
-  var taxt = cartProduct.product.category?.tax;
-
-  const price = cartProduct.product?.price;
-  const priceInt = parseFloat(price);
-
-  document.getElementById("taxCardProduct").value = `${taxt}`;
-  document.getElementById("priceCardProduct").value = `${priceInt}`;
-}
-
-function amountProduct() {
-  const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
-
-  for (let i = 0; i < cartProducts.length; i++) {    
-    var code = cartProducts[i].product.code;
-    var name = cartProducts[i].product.name;
-    var price = cartProducts[i].product.price;
-    var category = cartProducts[i].product.category;
-    var amountProduct = parseInt(cartProducts[i].product.amount)
-    var cartAmountInt = parseInt(cartProducts[i].amount)
-    
-    var amount = amountProduct - cartAmountInt ;
-    
-    const product = { code, name, amount, price, category };
-    
-    const products = JSON.parse(localStorage.getItem("products"));
-    
-    let newProducts = products.filter(
-      (product) => product.code !== code && product.name !== name
-    );
-    
-    if(cartAmountInt <= amountProduct) {
-      localStorage.setItem("products", JSON.stringify(newProducts));
-      
-      localStorage.setItem("products", JSON.stringify([...JSON.parse(localStorage.getItem("products")), product]));
-      location.reload()
-      return true    
-    } else {
-      alert('Não foi possível efetuar a compra, quantidade escolhida acima da quantidade disponível')
-      return false
-    }
-  }
-}
+    document.getElementById("taxResult").value = `${cartProduct.taxTotalProduct.toFixed(2)}`;
+    document.getElementById("totalResult").value = `${cartProduct.totalProduct.toFixed(2)}`;
   
-  function finishCart() {
-  const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
-  const purchasedProducts = JSON.parse(
-    localStorage.getItem("purchasedProducts")
-  );
-  const total = document.getElementById("totalResult").value;
-  const taxTotal = document.getElementById("taxResult").value;
-
-  if (purchasedProducts === null) {
-    var id = 1;
   } else {
-    id = purchasedProducts.length + 1;
-  }
+    var TaxTotalP = document.getElementById("taxResult").value 
+    var TotalP = document.getElementById("totalResult").value
 
-  const finishCart = { cartProducts, total, taxTotal, id };
-  
-  if(amountProduct() == true) {
-    if (localStorage.getItem("purchasedProducts") === null) {
-      localStorage.setItem("purchasedProducts", JSON.stringify([finishCart]));
-    } else {
-      localStorage.setItem("purchasedProducts", JSON.stringify(
-          [...JSON.parse(localStorage.getItem("purchasedProducts")), finishCart,]
-        )
-      );
-    }
+    var TaxTotalPInt = parseFloat(TaxTotalP) 
+    var TotalPInt = parseFloat(TotalP)
+
+    var newTaxTotalP = TaxTotalPInt + cartProduct.taxTotalProduct
+    var newTotalP = TotalPInt + cartProduct.totalProduct
+    
+    document.getElementById("taxResult").value = `${newTaxTotalP.toFixed(2)}`;
+    document.getElementById("totalResult").value = `${newTotalP.toFixed(2)}`;
   }
+}
   
+// function amountProduct() {
+//   const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+
+//   for (let i = 0; i < cartProducts.length; i++) {    
+//     var code = cartProducts[i].product.code;
+//     var name = cartProducts[i].product.name;
+//     var price = cartProducts[i].product.price;
+//     var category = cartProducts[i].product.category;
+//     var amountProduct = parseInt(cartProducts[i].product.amount)
+//     var cartAmountInt = parseInt(cartProducts[i].amount)
+    
+//     var amount = amountProduct - cartAmountInt ;
+    
+//     const product = { code, name, amount, price, category };
+    
+//     const products = JSON.parse(localStorage.getItem("products"));
+    
+//     let newProducts = products.filter(
+//       (product) => product.code !== code && product.name !== name
+//     );
+    
+//     if(cartAmountInt <= amountProduct) {
+//       localStorage.setItem("products", JSON.stringify(newProducts));
+      
+//       localStorage.setItem("products", JSON.stringify([...JSON.parse(localStorage.getItem("products")), product]));
+//       location.reload()
+//       return true    
+//     } else {
+//       alert('Não foi possível efetuar a compra, quantidade escolhida acima da quantidade disponível')
+//       return false
+//     }
+//   }
+// }
+
+function orderPost() {
+  var total = document.getElementById('totalResult').value
+  var tax = document.getElementById('taxResult').value
+  let data = new FormData()
+  data.append("totalResult", total)
+  data.append("taxResult", tax)
+  
+  fetch(`http://localhost/routes/home.php?action=postCart`, {
+    method: "POST",
+    body: data,
+  })
+}
+
+function orderItemPost() {
+  const cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+  cartProducts.forEach(cartProduct => {
+    fetch('http://localhost/routes/home.php?action=get')
+    .then(response => response.json())
+    .then((data) => {
+      data.forEach(order => {
+        let data = new FormData()
+        
+        data.append("product_code", JSON.stringify(cartProduct.product[0]));
+        data.append("order_code", JSON.stringify(order.max));
+        data.append("Amount", JSON.stringify(parseInt(cartProduct.amount)))
+        data.append("Price", JSON.stringify(parseFloat(cartProduct.priceInt)))
+        data.append("Tax", JSON.stringify(parseFloat(cartProduct.taxTotalProduct)))
+  
+        fetch(`http://localhost/routes/home.php?action=postProducts`, {
+          method: "POST",
+          body: data,
+        })
+      })
+    })
+  })
+}
+
+function finishCart() {
+  orderItemPost()
+
   localStorage.removeItem("cartProducts");
   document.getElementById("tablee").innerHTML = "";
   
@@ -211,5 +210,5 @@ function cancelCart() {
   document.getElementById("totalResult").value = "";
 }
 
+RenderProduct();
 GetCartProducts();
-GetProducts();

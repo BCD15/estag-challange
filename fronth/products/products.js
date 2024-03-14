@@ -15,12 +15,12 @@ function RenderProduct(product) {
             var priceInt =  parseFloat(product.price)
             tbody.appendChild(trow)
             trow.innerHTML = `
-                <th style="border-left: none; width: 14%;">${product.code}</th>
+                <th style="border-left: none; width: 14%;">${product[0]}</th>
                 <td>${filter(product[1])}</td>
                 <td>${product.amount}</td>
                 <td>${priceInt.toLocaleString('en-US',{style: 'currency', currency: 'USD'})}</td>
                 <td style="width: 25%;">${filter(product.name)}</td>
-                <td style="border-top: solid 1px lightgray;"><input onclick="DeleteProduct(); location.href='http://localhost/routes/products.php?action=delete&code=${product.code}'" class="tdbtn" type="button" value="delete" style="background-color: lightgray;"></td>
+                <td style="border-top: solid 1px lightgray;"><input onclick="DeleteProduct(); location.href='http://localhost/routes/products.php?action=delete&code=${product[0]}'" class="tdbtn" type="button" value="delete" style="background-color: lightgray;"></td>
             `;
         })
     })
