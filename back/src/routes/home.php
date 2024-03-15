@@ -15,6 +15,11 @@ switch($_REQUEST["action"]){
         // echo ("<script> history.back();</script>");
         break;
     
+    case 'postAmount':
+        postAmount(($myPDO));
+        // echo ("<script> history.back();</script>");
+        break;
+    
     case 'get':
         getOrderCode(($myPDO));
         // echo ("<script> history.back();</script>");

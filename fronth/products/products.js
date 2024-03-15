@@ -9,7 +9,6 @@ function RenderProduct(product) {
 
     fetch("http://localhost/routes/products.php?action=get").then(response => response.json()).then((data) => {
         var tbody = document.getElementById("tablee")
-        console.log(data)
         data.forEach(product => {
             var trow = document.createElement("tr")
             var priceInt =  parseFloat(product.price)
@@ -26,7 +25,7 @@ function RenderProduct(product) {
     })
 };
 
-function RenderCategory(category) {
+function RenderCategory() {
     fetch("http://localhost/routes/categories.php?action=get").then(response => response.json()).then((data) => {
         var select = document.getElementById("categoryProduct")
         data.forEach(category => {

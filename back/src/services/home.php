@@ -25,3 +25,10 @@ include ("../index.php");
     return print_r(json_encode($data));
   };
 
+  function postAmount($myPDO) {
+    $amount = $_POST["amount"];
+    $code = $_REQUEST["code"];
+    $product = $myPDO->prepare("UPDATE products SET amount = {$amount} WHERE code = {$code}");
+    $product->execute();
+  };
+

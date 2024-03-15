@@ -121,39 +121,32 @@ function RenderCartProduct(cartProduct) {
   }
 }
   
-// function amountProduct() {
-//   const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+function amountProduct() {
+  const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
 
-//   for (let i = 0; i < cartProducts.length; i++) {    
-//     var code = cartProducts[i].product.code;
-//     var name = cartProducts[i].product.name;
-//     var price = cartProducts[i].product.price;
-//     var category = cartProducts[i].product.category;
-//     var amountProduct = parseInt(cartProducts[i].product.amount)
-//     var cartAmountInt = parseInt(cartProducts[i].amount)
+  cartProducts.forEach(cartProduct => {
+    var code = cartProduct.product[0];
+    var amountProduct = parseInt(cartProduct.product.amount)
+    var cartAmountInt = parseInt(cartProduct.amount)
     
-//     var amount = amountProduct - cartAmountInt ;
-    
-//     const product = { code, name, amount, price, category };
-    
-//     const products = JSON.parse(localStorage.getItem("products"));
-    
-//     let newProducts = products.filter(
-//       (product) => product.code !== code && product.name !== name
-//     );
-    
-//     if(cartAmountInt <= amountProduct) {
-//       localStorage.setItem("products", JSON.stringify(newProducts));
-      
-//       localStorage.setItem("products", JSON.stringify([...JSON.parse(localStorage.getItem("products")), product]));
-//       location.reload()
-//       return true    
-//     } else {
-//       alert('Não foi possível efetuar a compra, quantidade escolhida acima da quantidade disponível')
-//       return false
-//     }
-//   }
-// }
+    var amount = amountProduct - cartAmountInt ;
+
+    if(cartAmountInt <= amountProduct) {
+      let data = new FormData()
+        data.append("amount", JSON.stringify(parseInt(amount)))
+        data.append("code", JSON.stringify(parseInt(code)))
+  
+        fetch(`http://localhost/routes/home.php?action=postAmount`, {
+          method: "POST",
+          body: data,
+        })
+      return true    
+    } else {
+      alert('Não foi possível efetuar a compra, quantidade escolhida acima da quantidade disponível')
+      return false
+    }
+  })
+}
 
 function orderPost() {
   var total = document.getElementById('totalResult').value
@@ -194,6 +187,7 @@ function orderItemPost() {
 
 function finishCart() {
   orderItemPost()
+  amountProduct()
 
   localStorage.removeItem("cartProducts");
   document.getElementById("tablee").innerHTML = "";
