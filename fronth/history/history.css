@@ -38,11 +38,15 @@ nav a {
 
 table {
     border-collapse: collapse;
+    /* background-color: red; */
+    margin: auto;
+    width: 85%;
 }
 
 th {
     border-bottom: solid 1px lightgrey;
     /* border-left: solid 1px lightgrey; */
+    width: 27%;
     border-collapse: collapse;
     padding: 10px;
     text-align: start;
@@ -61,6 +65,8 @@ td {
     border-radius: 2px; 
     border: none; 
     color: black; 
-    padding: 5px; 
+    padding: 6px;
+    width: 75%; 
     font-weight: bold;
+    font-size: 14px;
 }

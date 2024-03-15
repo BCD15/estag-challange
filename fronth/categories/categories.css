@@ -100,6 +100,9 @@ td {
     border-radius: 2px; 
     border: none; 
     color: black; 
-    padding: 5px; 
+    padding: 6px;
+    width: 75%; 
     font-weight: bold;
+    font-size: 14px;
+    /* justify-content: center; */
 }

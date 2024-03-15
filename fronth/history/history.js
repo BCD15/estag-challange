@@ -12,17 +12,16 @@ function RenderPurchaseds() {
 
             tbody.appendChild(trow)
             trow.innerHTML = `
-                <th style="border-left: none; width: 50%;">${orders.code}</th>
+                <th class="codeth">${orders.code}</th>
                 <td>${orders.tax.toLocaleString('en-US',{style: 'currency', currency: 'USD'})}</td>
                 <td name="totaltd">${orders.total.toLocaleString('en-US',{style: 'currency', currency: 'USD'})}</td>
-                <td style="border-top: solid 1px lightgray; width: 20%;"><button onclick="View()" class="tdbtn" style="background-color: lightgray;"><a href="#modal" style="text-decoration: none; color: black;">View</a></button></td>
+                <td style="border-top: solid 1px lightgray; display: flex; justify-content: center;"><button onclick="View()" class="tdbtn" style="background-color: lightgray;"><a href="#modal" style="text-decoration: none; color: black;">View</a></button></td>
             `;
         })
     })
 };
 
 function View(event) {
-    
     var row = this.event.target.parentElement.parentElement.parentElement
     var codex = row.children[0].innerText
     
