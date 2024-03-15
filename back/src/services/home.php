@@ -4,7 +4,9 @@ include ("../index.php");
     $tax = $_POST["taxResult"];
     $total = $_POST["totalResult"];
 
-    $cartPost = $myPDO->prepare("INSERT INTO orders (total, tax) VALUES ({$total}, {$tax})");
+    $cartPost = $myPDO->prepare("INSERT INTO orders (total, tax) VALUES (:total, :tax)");
+    $cartPost->bindParam(":total", $total);
+    $cartPost->bindParam(":tax", $tax);
     $cartPost->execute();
   };
 
@@ -15,7 +17,12 @@ include ("../index.php");
     $price = $_POST["Price"];
     $tax = $_POST["Tax"];
  
-    $cartItemPost = $myPDO->prepare("INSERT INTO order_item (order_code, product_code, amount, price, tax) VALUES ({$order_code}, {$product_code}, {$amount}, {$price}, {$tax})");
+    $cartItemPost = $myPDO->prepare("INSERT INTO order_item (order_code, product_code, amount, price, tax) VALUES ( :order_code, :product_code, :amount, :price, :tax)");
+    $cartItemPost->bindParam(":order_code",$order_code);
+    $cartItemPost->bindParam(":product_code",$product_code);
+    $cartItemPost->bindParam(":amount",$amount);
+    $cartItemPost->bindParam(":price",$price);
+    $cartItemPost->bindParam(":tax",$tax);
     $cartItemPost->execute();
   };
 
