@@ -18,11 +18,11 @@ include ("../index.php");
     $tax = $_POST["Tax"];
  
     $cartItemPost = $myPDO->prepare("INSERT INTO order_item (order_code, product_code, amount, price, tax) VALUES ( :order_code, :product_code, :amount, :price, :tax)");
-    $cartItemPost->bindParam(":order_code",$order_code);
-    $cartItemPost->bindParam(":product_code",$product_code);
-    $cartItemPost->bindParam(":amount",$amount);
-    $cartItemPost->bindParam(":price",$price);
-    $cartItemPost->bindParam(":tax",$tax);
+    $cartItemPost->bindParam(":order_code", $order_code);
+    $cartItemPost->bindParam(":product_code", $product_code);
+    $cartItemPost->bindParam(":amount", $amount);
+    $cartItemPost->bindParam(":price", $price);
+    $cartItemPost->bindParam(":tax", $tax);
     $cartItemPost->execute();
   };
 

@@ -152,6 +152,7 @@ function orderPost() {
   var total = document.getElementById('totalResult').value
   var tax = document.getElementById('taxResult').value
   let data = new FormData()
+  
   data.append("totalResult", total)
   data.append("taxResult", tax)
   
