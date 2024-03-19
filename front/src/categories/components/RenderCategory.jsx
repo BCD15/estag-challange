@@ -6,7 +6,7 @@ export default function RenderCategory( props ) {
             <td>{props.item.name}</td>
             <td style={{width: '20%'}}>{props.item.tax}%</td>
             <td style={{borderTop: 'solid 1px lightgray', width: '15%'}}>
-                <input type="button" value="delete" onClick={() => {location.href=`http://localhost/routes/categories.php?action=delete&code=${props.item[0]}`}} className="tdbtn" style={{backgroundColor: 'lightgray'}} />
+                <input type="button" value="delete" onClick={() => {location.href=`http://localhost/routes/categories.php?action=delete&code=${props.item[0]}`}} className="tdbtnC" style={{backgroundColor: 'lightgray'}} />
             </td>
         </tr>
     )

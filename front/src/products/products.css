@@ -1,4 +1,4 @@
-.cadastroC{
+.cadastroP{
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -7,6 +7,7 @@
 
 form{
     padding: 10px;
+    margin-left: 25px;
 }
 
 form input {
@@ -15,10 +16,21 @@ form input {
     background-color: #F4F4F4;
     color: gray;
     margin: 5px;
-    width: 90%;
 }
 
-.submit-inputC {
+.downInputsP {
+    width: 28.7%;
+}
+
+form select {
+    border-radius: 2px;
+    border: solid 1px lightgrey;
+    background-color: #F4F4F4;
+    color: gray;
+    margin: 5px;
+}
+
+.submit-inputP {
     width: 91%; 
     border-radius: 2px; 
     border: none; 
@@ -29,7 +41,7 @@ form input {
     font-weight: bold;
 }
 
-.categoriesC{
+.productsP {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -42,22 +54,20 @@ form input {
 table {
     border-collapse: collapse;
     max-width: 98%;
-    /* background-color: red; */
     word-break: break-all;
-}
-
-tr {
-    max-width: 98%;
 }
 
 th {
     border-bottom: solid 1px lightgrey;
-    /* border-left: solid 1px lightgrey; */
     border-collapse: collapse;
     padding: 10px;
     text-align: start;
     border-right: solid 1px lightgrey;
-    /* width: 24%; */
+    width: 19%;
+}
+
+tr {
+    max-width: 98%;
 }
 
 td {
@@ -68,13 +78,13 @@ td {
     text-align: start;
 }
 
-.tdbtnC {
+.tdbtnP {
     border-radius: 2px; 
     border: none; 
     color: black; 
-    padding: 6px;
-    width: 75%; 
+    padding: 5px; 
     font-weight: bold;
     background-color: lightgray;
-    /* justify-content: center; */
+    width: 100%; 
+
 }

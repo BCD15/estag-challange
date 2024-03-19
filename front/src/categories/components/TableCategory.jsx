@@ -18,7 +18,7 @@ export default function TableCategory() {
 
 
     return(
-        <div className="categories">
+        <div className="categoriesC">
             <table>
                 <thead>
                     <tr>
