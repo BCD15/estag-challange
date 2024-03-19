@@ -47,9 +47,5 @@ function View(event) {
         })
     })
 };
-
-// for (var i=0; i < purchasedProducts[code -1].cartProducts.length; i++){
-// }
     
-
 RenderPurchaseds();

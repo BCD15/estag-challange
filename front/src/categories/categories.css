@@ -1,0 +1,81 @@
+.cadastro{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+form{
+    padding: 10px;
+}
+
+form input {
+    border-radius: 2px;
+    border: solid 1px lightgrey;
+    background-color: #F4F4F4;
+    color: gray;
+    margin: 5px;
+    width: 90%;
+}
+
+.submit-input {
+    width: 91%; 
+    border-radius: 2px; 
+    border: none; 
+    background-color: #6a65fe; 
+    color: black; 
+    padding: 5px; 
+    margin: 5px;
+    font-weight: bold;
+}
+
+.categories{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 50%; 
+    border-left: solid 1px lightgrey;
+    padding-left: 15px;
+    height: 70%;
+}
+
+table {
+    border-collapse: collapse;
+    max-width: 98%;
+    /* background-color: red; */
+    word-break: break-all;
+}
+
+tr {
+    max-width: 98%;
+}
+
+th {
+    border-bottom: solid 1px lightgrey;
+    /* border-left: solid 1px lightgrey; */
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: start;
+    border-right: solid 1px lightgrey;
+    /* width: 24%; */
+}
+
+td {
+    border-bottom: solid 1px lightgrey;
+    border-left: solid 1px lightgrey;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: start;
+}
+
+.tdbtn {
+    border-radius: 2px; 
+    border: none; 
+    color: black; 
+    padding: 6px;
+    width: 75%; 
+    font-weight: bold;
+    font-size: 14px;
+    background-color: lightgray;
+    /* justify-content: center; */
+}

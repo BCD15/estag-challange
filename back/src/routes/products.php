@@ -19,7 +19,7 @@ switch($_REQUEST["action"]){
             delProduct(($myPDO));
             echo ("<script> history.back();</script>");
         } catch (Exception $e){
-            echo "bah";
+            echo "bahhhhhhhhhhhhh";
             echo '<button onclick="history.back()">Voltar</button>';
         }
         break;
