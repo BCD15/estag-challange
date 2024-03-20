@@ -55,7 +55,9 @@ export default function Modal({ isOpen, setOpen}) {
     function finishCart() {
       orderItemPost()
       amountProduct()
-      
+
+      setOpen(true)
+
       localStorage.removeItem("cartProducts");
       document.getElementById("tablee").innerHTML = "";
       
@@ -73,7 +75,7 @@ export default function Modal({ isOpen, setOpen}) {
                     </div>
                     <div className="buttons">
                         <button value="Cancel" onClick={setOpen} style={{backgroundColor: 'lightgray'}}>Cancel</button>
-                        <button value="Finish" onClick={finishCart} onMouseUp={setOpen}>Finish</button>
+                        <button value="Finish" onClick={finishCart}>Finish</button>
                     </div>
                 </div>
             </div>
