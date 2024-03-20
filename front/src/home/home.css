@@ -1,0 +1,171 @@
+.cadastroH{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.formH{
+    padding: 10px;
+}
+
+.formH input {
+    border-radius: 2px;
+    border: solid 1px lightgrey;
+    background-color: #F4F4F4;
+    color: gray;
+    margin: 5px;
+}
+
+.formH select {
+    border-radius: 2px;
+    border: solid 1px lightgrey;
+    background-color: #F4F4F4;
+    color: gray;
+    margin: 5px;
+}
+
+.downInputsH {
+    width: 29.1%;
+}
+
+.submit-inputH {
+    width: 90%; 
+    border-radius: 2px; 
+    border: none; 
+    background-color: #6a65fe; 
+    color: black; 
+    padding: 5px; 
+    margin-left: 15px; 
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.carrinhoH{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 50%; 
+    border-left: solid 1px lightgrey;
+    padding-left: 15px;
+    height: 70%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    border-bottom: solid 1px lightgrey;
+    /* border-left: solid 1px lightgrey; */
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: start;
+    border-right: solid 1px lightgrey;
+}
+
+td {
+    border-bottom: solid 1px lightgrey;
+    border-left: solid 1px lightgrey;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: start;
+}
+
+.valorFinal {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    align-self: end;
+    margin-top: 20px;
+    font-size: large;
+}
+
+.finish {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.finish input {
+    width: 25%; 
+    border-radius: 2px; 
+    border: none; 
+    background-color: #6a65fe; 
+    color: black; 
+    padding: 5px; 
+    font-weight: bold;
+    justify-content: end;   
+}
+
+.finish button {
+    width: 25%; 
+    border-radius: 2px; 
+    border: none; 
+    background-color: #6a65fe; 
+    color: black; 
+    padding: 5px; 
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 8px;
+}
+
+.buttons button {
+    background-color: #6a65fe; 
+    width: 25%; 
+    border-radius: 2px; 
+    border: none; 
+    color: black; 
+    padding: 5px; 
+    font-weight: bold;
+}
+
+.buttons a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.texto {
+    margin: 10px;
+    text-wrap: wrap;
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(77, 77, 77, 0.7);
+    transition: all 0.4s;
+}
+
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal_content {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    width: 30%;
+    height: 25%;
+}
+
+.modal_footer {
+    text-align: center;
+    padding: 10px;
+}

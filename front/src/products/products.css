@@ -5,12 +5,11 @@
     width: 48%;
 }
 
-form{
+.formP{
     padding: 10px;
-    margin-left: 25px;
 }
 
-form input {
+.formP input {
     border-radius: 2px;
     border: solid 1px lightgrey;
     background-color: #F4F4F4;
@@ -22,7 +21,7 @@ form input {
     width: 28.7%;
 }
 
-form select {
+.formP select {
     border-radius: 2px;
     border: solid 1px lightgrey;
     background-color: #F4F4F4;

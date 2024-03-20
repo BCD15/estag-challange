@@ -1,11 +1,13 @@
+import './home.css'
 
-import '../index.css'
+import FormHome from './components/FormHome'
+import TableHome from './components/TableHome'
 
 export default function Home() {
     return (
         <>
-            
-            <p>ola mundo</p>
+           <FormHome /> 
+           <TableHome /> 
         </>
     )
 }

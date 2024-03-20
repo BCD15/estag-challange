@@ -5,11 +5,11 @@
     width: 48%;
 }
 
-form{
+.formC{
     padding: 10px;
 }
 
-form input {
+.formC input {
     border-radius: 2px;
     border: solid 1px lightgrey;
     background-color: #F4F4F4;

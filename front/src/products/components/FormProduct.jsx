@@ -16,8 +16,8 @@ export default function FormProduct() {
 
     return(
         <div className="cadastroP">
-            <form action="http://localhost/routes/products.php?action=post" method="POST">
-                <input type="text" name="Product" id="nameProduct" placeholder="Product name" />
+            <form className="formP" action="http://localhost/routes/products.php?action=post" method="POST">
+                <input type="text" name="Product" id="nameProduct" placeholder="Product name" style={{width: '90%'}}/>
                 <input type="number" min="1" name="Amount" id="amountProduct" placeholder="Amount" className="downInputsP" />
                 <input type="number" min="0.01" step="any"  name="Price" id="priceProduct" placeholder="Price" className="downInputsP" />
                 
