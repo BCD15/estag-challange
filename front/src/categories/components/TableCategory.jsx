@@ -19,7 +19,7 @@ export default function TableCategory() {
 
     return(
         <div className="categoriesC">
-            <table>
+            <table className="tableC">
                 <thead>
                     <tr>
                         <th style={{borderLeft: 'none', width: '15%' }}>Code</th>

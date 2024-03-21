@@ -1,0 +1,79 @@
+.history{
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    border-left: solid 1px lightgrey;
+    padding-left: 15px;
+    height: 70%;
+}
+
+.tableH {
+    border-collapse: collapse;
+    /* background-color: red; */
+    margin: auto;
+    width: 85%;
+}
+
+th {
+    border-bottom: solid 1px lightgrey;
+    /* border-left: solid 1px lightgrey; */
+    width: 27%;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: start;
+    border-right: solid 1px lightgrey;
+}
+
+td {
+    border-bottom: solid 1px lightgrey;
+    border-left: solid 1px lightgrey;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: start;
+}
+
+.tdbtn {
+    border-radius: 2px; 
+    border: none; 
+    color: black; 
+    padding: 6px;
+    width: 75%; 
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(77, 77, 77, 0.7);
+    transition: all 0.4s;
+}
+
+.modal:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal_contentHistory {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.modal_footer {
+    text-align: center;
+    padding: 10px;
+}
+
+.modal table {
+    border-collapse: collapse;
+    /* background-color: red; */
+    margin: auto;
+    width: 85%;
+}

@@ -50,7 +50,7 @@
     height: 70%;
 }
 
-table {
+.tableP {
     border-collapse: collapse;
     max-width: 98%;
     word-break: break-all;

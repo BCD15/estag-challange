@@ -20,7 +20,7 @@ export default function TableHome() {
 
     return(
         <div className="carrinhoH">
-            <table>
+            <table className="tableHH">
                 <thead>
                     <tr>
                         <th style={{borderLeft: 'none', width: '40%'}}>Product</th>

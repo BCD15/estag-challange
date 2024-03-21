@@ -46,9 +46,9 @@ export default function Finish() {
                 <div>
                     <input type="button" value="Cancel" onClick={cancelCart} style={{backgroundColor: 'lightgray', marginLeft: '350px'}} />
                     <button className="tdbtn" onClick={orderPost}>Finish</button>
+                <Modal isOpen={open} setOpen={() => setOpen(!open)} />
                 </div>
  
-                <Modal isOpen={open} setOpen={() => setOpen(!open)} />
  
             </div>
         </>

@@ -19,7 +19,7 @@ export default function TableProduct() {
 
     return(
         <div className="productsP">
-            <table>
+            <table className="tableP">
                 <thead>
                     <tr>
                         <th style={{borderLeft: 'none', width: '10%'}}>Code</th>
