@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
 import '../home.css'
 
-export default function FormHome() {
+export default function FormHome({bodyTheme, submitButtonTheme}) {
     const [products, setProducts] = useState([]);
     
     useEffect(() =>  {
@@ -76,7 +77,7 @@ export default function FormHome() {
     }
 
     return(
-        <div className="cadastroH">
+        <div className="cadastroH" style={bodyTheme}>
             <form className="formH">
                 <select name="Product"  id="slctProduct" onChange={associaInput} style={{width: '93%'}}>
                     {products.map((product)=>(
@@ -89,7 +90,7 @@ export default function FormHome() {
                 <input type="number" className="downInputsH" min="0.01" step="any" name="Price" id="priceCardProduct" placeholder="Unit Price" disabled />
             </form>
 
-            <input type="submit" value="Add Product to Cart" onClick={AddCartProduct} className="submit-inputH" />
+            <input type="submit" value="Add Product to Cart" onClick={AddCartProduct} className="submit-inputH" style={submitButtonTheme}/>
         </div>
 
     )

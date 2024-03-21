@@ -1,8 +1,9 @@
 .cadastroC{
-    margin-top: 30px;
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     width: 48%;
+    height: 83.8vh;
 }
 
 .formC{
@@ -30,13 +31,14 @@
 }
 
 .categoriesC{
-    margin-top: 30px;
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     width: 50%; 
     border-left: solid 1px lightgrey;
-    padding-left: 15px;
-    height: 70%;
+    padding-left: 17.5px;
+    padding-right: 10px;
+    height: 83.8vh;
 }
 
 .tableC {

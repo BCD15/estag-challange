@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
 import '../home.css'
@@ -5,7 +6,7 @@ import '../home.css'
 import RenderHome from './RenderHome'
 import Finish from "./Finish";
 
-export default function TableHome() {
+export default function TableHome({ bodyTheme, submitButtonTheme, buttonTheme }) {
     
     const [itens, setItens] = useState([]);
 
@@ -19,7 +20,7 @@ export default function TableHome() {
 
 
     return(
-        <div className="carrinhoH">
+        <div className="carrinhoH" style={bodyTheme}>
             <table className="tableHH">
                 <thead>
                     <tr>
@@ -35,7 +36,7 @@ export default function TableHome() {
                         ))}   
                 </tbody>
             </table>
-            <Finish />
+            <Finish bodyTheme={bodyTheme} submitButtonTheme={submitButtonTheme} buttonTheme={buttonTheme}/>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-export default function Modal({ isOpen, setOpen}) {
+export default function Modal({ isOpen, setOpen, bodyTheme, submitButtonTheme, buttonTheme }) {
     
     function amountProduct() {
         const cartProducts = JSON.parse(localStorage.getItem("cartProducts"));
@@ -68,14 +68,14 @@ export default function Modal({ isOpen, setOpen}) {
     if (isOpen) {
         return (
             <div id="modal" className="modal">
-                <div className="modal_content">
+                <div className="modal_content" style={bodyTheme}>
                     <div className="texto">
                         <h3 style={{paddingBottom: '10px', borderBottom: 'solid 1px lightgray'}}>Tem certeza que deseja finalizar sua compra?</h3>
                         <p>Se quiser finalizar a sua compra clique em finish, se quiser cancelar a compra ou continuar comprando clique em cancel para voltar</p>
                     </div>
                     <div className="buttons">
-                        <button value="Cancel" onClick={setOpen} style={{backgroundColor: 'lightgray'}}>Cancel</button>
-                        <button value="Finish" onClick={finishCart}>Finish</button>
+                        <button value="Cancel" onClick={setOpen} style={buttonTheme}>Cancel</button>
+                        <button value="Finish" onClick={finishCart} style={submitButtonTheme}>Finish</button>
                     </div>
                 </div>
             </div>

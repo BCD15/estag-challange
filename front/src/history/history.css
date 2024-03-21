@@ -3,14 +3,17 @@
     flex-direction: column;
     width: 100%; 
     border-left: solid 1px lightgrey;
-    padding-left: 15px;
-    height: 70%;
+    padding-left: 17.5px;
+    padding-right: 10px;
+    height: 87.8vh;
 }
 
 .tableH {
     border-collapse: collapse;
     /* background-color: red; */
-    margin: auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
     width: 85%;
 }
 

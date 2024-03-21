@@ -5,7 +5,7 @@ import RenderHistoryItens from './RenderHistoryItens'
 
 import '../history.css'
 
-export default function Modal({ isOpen, setOpen}) {
+export default function Modal({ isOpen, setOpen, bodyTheme, buttonTheme}) {
     const [itens, setItens] = useState([]);
 
     useEffect(() =>  {
@@ -19,7 +19,7 @@ export default function Modal({ isOpen, setOpen}) {
     if (isOpen) {
         return (
             <div id="modal" className="modal">
-                <div className="modal_contentHistory">
+                <div className="modal_contentHistory" style={bodyTheme}>
                     <table>
                         <thead>
                             <tr>
@@ -37,7 +37,7 @@ export default function Modal({ isOpen, setOpen}) {
                         </tbody>
                     </table>
                     <div className="modal_footer">
-                        <button className="modal_close" onClick={() => setOpen(true)}> Fechar </button>
+                        <button className="modal_close" onClick={() => setOpen(true)} style={buttonTheme}> Fechar </button>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
 import '../categories.css'
 
 import RenderCategory from './RenderCategory'
 
-export default function TableCategory() {
+export default function TableCategory({ bodyTheme, buttonTheme}) {
     
     const [itens, setItens] = useState([]);
 
@@ -18,7 +19,7 @@ export default function TableCategory() {
 
 
     return(
-        <div className="categoriesC">
+        <div className="categoriesC" style={bodyTheme}>
             <table className="tableC">
                 <thead>
                     <tr>
@@ -29,7 +30,7 @@ export default function TableCategory() {
                 </thead>
                 <tbody id="tablee"> 
                     {itens.map((item) => (
-                        <RenderCategory item={item} key={item[0]} />
+                        <RenderCategory item={item} key={item[0]} buttonTheme={buttonTheme}/>
                     ))}   
                 </tbody>
             </table>

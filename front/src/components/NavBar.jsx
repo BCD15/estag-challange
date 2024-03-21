@@ -1,16 +1,20 @@
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom'
 
 import '../index.css'
 
-export default function NavBar() {
+export default function NavBar({navTheme}) {
+
     return (
-        <nav>
+        <nav style={navTheme}>
             <Link to='/'>
-                <h1>Suite Store</h1>
+                <h1 style={navTheme}>Suite Store</h1>
             </Link>
-            <Link to='/products' className="nav-links">Products</Link>    
-            <Link to='/categories' className="nav-links">Categories</Link>    
-            <Link to='/history' className="nav-links">History</Link>
+            <Link to='/products' className="nav-links" style={navTheme}>Products</Link>    
+            <Link to='/categories' className="nav-links" style={navTheme}>Categories</Link>    
+            <Link to='/history' className="nav-links" style={navTheme}>History</Link>
         </nav>
     )
 }
+
+// #484f58

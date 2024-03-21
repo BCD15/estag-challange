@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
 import '../products.css'
 
 import RenderProduct from './RenderProduct'
 
-export default function TableProduct() {
+export default function TableProduct({bodyTheme, buttonTheme}) {
     
     const [itens, setItens] = useState([]);
 
@@ -18,7 +19,7 @@ export default function TableProduct() {
 
 
     return(
-        <div className="productsP">
+        <div className="productsP" style={bodyTheme}>
             <table className="tableP">
                 <thead>
                     <tr>
@@ -31,7 +32,7 @@ export default function TableProduct() {
                 </thead>
                 <tbody id="tablee">
                     {itens.map((item) => (
-                        <RenderProduct item={item} key={item[0]} />
+                        <RenderProduct item={item} key={item[0]} buttonTheme={buttonTheme}/>
                     ))}   
                 </tbody>
             </table>

@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import Modal from './ModalFinish';
 
 import '../home.css'
 
-export default function Finish() {
+export default function Finish({ bodyTheme, submitButtonTheme, buttonTheme }) {
     const [open, setOpen] = useState(false);
 
     function orderPost() {
@@ -44,9 +45,9 @@ export default function Finish() {
 
             <div className="finish">    
                 <div>
-                    <input type="button" value="Cancel" onClick={cancelCart} style={{backgroundColor: 'lightgray', marginLeft: '350px'}} />
-                    <button className="tdbtn" onClick={orderPost}>Finish</button>
-                <Modal isOpen={open} setOpen={() => setOpen(!open)} />
+                    <input type="button" value="Cancel" onClick={cancelCart} className="cancelBtn" style={buttonTheme} />
+                    <button className="tdbtn" onClick={orderPost} style={submitButtonTheme}>Finish</button>
+                <Modal isOpen={open} setOpen={() => setOpen(!open)} bodyTheme={bodyTheme} submitButtonTheme={submitButtonTheme} buttonTheme={buttonTheme} />
                 </div>
  
  

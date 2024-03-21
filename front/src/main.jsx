@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client'
 
 import { BrowserRouter, } from 'react-router-dom'
 
-import NavBar from "./components/NavBar";
 import App from './App.jsx';
 
 import './index.css'
@@ -11,7 +10,6 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <NavBar />
       <App />
     </BrowserRouter>
   </React.StrictMode>,

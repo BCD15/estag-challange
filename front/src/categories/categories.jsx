@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 import './categories.css'
 
 import FormCategory from './components/FormCategory';
 import TableCategory from './components/TableCategory';
 
-export default function Categories() {
+export default function Categories({ bodyTheme, submitButtonTheme, buttonTheme }) {
     return(
         <>
-            <FormCategory />
-            <TableCategory />
+            <FormCategory bodyTheme={bodyTheme} submitButtonTheme={submitButtonTheme}/>
+            <TableCategory bodyTheme={bodyTheme} buttonTheme={buttonTheme}/>
         </>
     )
 }

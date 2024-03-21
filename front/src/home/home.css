@@ -1,8 +1,9 @@
 .cadastroH{
-    margin-top: 30px;
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     width: 48%;
+    height: 83.8vh;
 }
 
 .formH{
@@ -42,13 +43,14 @@
 }
 
 .carrinhoH{
-    margin-top: 30px;
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     width: 50%; 
     border-left: solid 1px lightgrey;
-    padding-left: 15px;
-    height: 70%;
+    padding-left: 17.5px;
+    padding-right: 10px;
+    height: 83.8vh;
 }
 
 .tableHH {
@@ -108,6 +110,10 @@ td {
     padding: 5px; 
     font-weight: bold;
     margin-left: 10px;
+}
+
+.cancelBtn{
+    margin-left: 350px;
 }
 
 .buttons {

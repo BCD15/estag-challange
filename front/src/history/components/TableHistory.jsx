@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
 import '../history.css'
 
 import RenderHistory from './RenderHistory'
 
-export default function TableHistory() {
+export default function TableHistory({ bodyTheme, buttonTheme }) {
     
     const [itens, setItens] = useState([]);
 
@@ -18,7 +19,7 @@ export default function TableHistory() {
 
 
     return(
-        <div className="history">
+        <div className="history" style={bodyTheme}>
             <table className="tableH">
                 <thead>
                     <tr>
@@ -29,7 +30,7 @@ export default function TableHistory() {
                 </thead>
                 <tbody id="tablee"> 
                     {itens.map((item) => (
-                        <RenderHistory item={item} key={item[0]} />
+                        <RenderHistory item={item} key={item[0]} bodyTheme={bodyTheme} buttonTheme={buttonTheme} />
                     ))}   
                 </tbody>
             </table>

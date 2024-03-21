@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 import './history.css'
 
 import TableHistory from './components/TableHistory';
 
-export default function History() {
+export default function History({ bodyTheme, buttonTheme }) {
     return(
         <>
-            <TableHistory />
+            <TableHistory bodyTheme={bodyTheme} buttonTheme={buttonTheme} />
         </>
     )
 }
