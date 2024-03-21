@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { Routes, Route } from 'react-router-dom'
 
+import { FiZap, FiZapOff } from "react-icons/fi";
 
 import NavBar from "./components/NavBar";
 
@@ -15,8 +16,15 @@ import './App.css'
 
 export default function App() {
   const [dark, setDark] = useState(false)
+  const [zap, setZap] = useState(FiZapOff)
 
   function click() {
+    if(dark == false) {
+      setZap(FiZap)
+    } else {
+      setZap(FiZapOff)
+    }
+
     if (localStorage.getItem("darks") === null) {
       setDark(!dark)
       localStorage.setItem("darks", JSON.stringify([dark]));
@@ -59,7 +67,7 @@ export default function App() {
         <Route path='/categories' element={ <Categories bodyTheme={bodyTheme} submitButtonTheme={submitButtonTheme} buttonTheme={buttonTheme}/> }/>
         <Route path='/history' element={ <History bodyTheme={bodyTheme} buttonTheme={buttonTheme}/> }/>
       </Routes>
-      <button style={{position: 'absolute', right: 20, top: 36}} onClick={click}>tema</button>
+      <button style={{position: 'absolute', right: 25, top: 34, backgroundColor: 'transparent', borderRadius: '10px', padding: '6px', border: 'none', color:'white', fontSize: '18px',}} onClick={click}>{zap}</button>
     </>
   )
 }
